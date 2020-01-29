@@ -1,6 +1,5 @@
 #include "output.h" // file code that I created 
 #include<iostream> // use standard library 
-
 using std::cout; 
 
 int main() 
