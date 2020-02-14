@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "while.h"
 #include<iostream>
 
@@ -15,4 +16,12 @@ int main()
 	cout << "sum of squares for " << num << "is" << sum;
 
 	return 0;
+=======
+#include "while.h"
+
+int main() 
+{
+
+	return 0;
+>>>>>>> c35dba49127eb7a3889378ecb9ced69cf60a2c13
 }
