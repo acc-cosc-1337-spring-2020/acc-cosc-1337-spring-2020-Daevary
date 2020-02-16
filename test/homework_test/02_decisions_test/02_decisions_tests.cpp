@@ -8,11 +8,11 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE("Test get grade points")
 {
-	REQUIRE(get_grade_points(A) == 4);
-	REQUIRE(get_grade_points(B) == 3);
-	REQUIRE(get_grade_points(C) == 2);
-	REQUIRE(get_grade_points(D) == 1);
-	REQUIRE(get_grade_points(F) == 0);
+	REQUIRE(get_grade_points("A") == 4);
+	REQUIRE(get_grade_points("B") == 3);
+	REQUIRE(get_grade_points("C") == 2);
+	REQUIRE(get_grade_points("D") == 1);
+	REQUIRE(get_grade_points("F") == 0);
 
 }
 
