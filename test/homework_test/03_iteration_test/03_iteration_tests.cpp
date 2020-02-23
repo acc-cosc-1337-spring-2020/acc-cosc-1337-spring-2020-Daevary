@@ -22,6 +22,6 @@ TEST_CASE("Test Reverse String function")
 TEST_CASE("Test Reverse Complement function")
 {
 	REQUIRE(get_dna_complement("AAAACCCGGT") == "ACCGGGTTTT");
-	REQUIRE(get_dna_complement("CGCTATAG") == "ATTTTCCGGG");
+	REQUIRE(get_dna_complement("CCCGGAAAAT") == "ATTTTCCGGG");
 }
 

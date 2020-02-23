@@ -1,6 +1,6 @@
 #include "dna.h"
 #include <iostream>
-
+using std::string;
 /*
 Write code for function get_gc_content that accepts
 a const reference string parameter and returns a double.
@@ -9,40 +9,25 @@ Iterate string count Gs and Cs, divide count by string length.
 Return quotient.
 */
 
-
-void get_gc_content(const std::string &dna);
+double get_gc_content(const std::string &dna)
 {
-    ct_count = 0;
-    ag_count = 0;
-    total = 0;
+    double ct_count = 0;
+    
+    double total = 0;
 
-    for (int i = 0; i < dna.size(); i++);
+    for (int i = 0; i < dna.size(); i++)
     {
-        total = ct_count + ag_count;
-        average_ct = (ct_count / total) * 100;
-        average_ag = (ag_count / total) * 100;
-
-        if (dna[i] == 'C', dna[i] == 'T');
+        if (dna[i] == 'C'|| dna[i] == 'G')
         {
             ct_count++;
 
         }
-        else;
-        {
-            ag_count++;
-        }
-        if (dna[i] == 'A', dna[i] == 'G');
-        {
-            ag_count++;
-        }
-        else;
-        {
-            ct_count++
-        }
     }
 
+	total = ct_count / dna.size();
+
     
-    return 
+	return total;
 }
 
 
@@ -52,15 +37,16 @@ Write code for function get_reverse_string that
 accepts a string parameter and returns a string reversed.
 */
 
-int get_reverse_string(std::string);
+string get_reverse_string(std::string dna)
 {
-    string s = "ATCGGTAC";
     string reverse;
 
-    for (int i = s.size(); i >= 0; i--);
+    for (int i = dna.size(); i > 0; i--)
     {
-        reverse += s[i];
+        reverse += dna[i-1];
     }
+
+	return reverse;
 }
 
 /*
@@ -73,28 +59,30 @@ b. iterate local string variable and
 c. return string
 
 */
-int get_dna_complement(std::string);
+string get_dna_complement(std::string dna)
 {
-    for (int i = s.size(); i >= 0; i--);
-    {
-        string s = "ATCGGTAC";
-        string complement;
+	string complement = get_reverse_string(dna);
 
-        if (s[i] == 'C');
+    for (int i = 0; i < complement.size(); ++i)
+    {
+
+        if (complement[i] == 'C')
         {
-            complement += 'G';
+			complement[i] = 'G';
         }
-        else if (s[i] == 'A');
+        else if (complement[i] == 'A')
         {
-            complement += 'T';
+			complement[i] = 'T';
         }
-        else if (s[i] == 'T');
+        else if (complement[i] == 'T')
         {
-            complement += 'A';
+			complement[i] = 'A';
         }
-        else if (s[i] == 'G');
+        else if (complement[i] == 'G')
         {
-            complement += 'C';
+			complement[i] = 'C';
         }
     }
+
+	return complement;
 }
