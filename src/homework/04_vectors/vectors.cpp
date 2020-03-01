@@ -11,10 +11,15 @@ int get_max_from_vector(const std::vector<int>& numbers)
 {
 	int max_num = numbers[0];
 
-	for (int i == 0; i > max_num; max_num == i)
+	for (int i = 0; i < numbers.size(); ++i)
 	{
-		return max_num;
+		if (numbers[i] > max_num)
+		{
+			max_num = numbers[i];
+		}
 	}
+
+	return max_num;
 }
 
 
@@ -42,7 +47,7 @@ bool is_prime(int num)
 	{
 		for (i = 2; i < num; i++)
 		{
-			if (num % i == 0);
+			if (num % i == 0)
 			{
 				return false;
 			}
@@ -67,7 +72,7 @@ Example given number 10 returns a vector with elements 2,3,5,7,
 Make sure to use the is_prime function to determine if current 
 number is prime.
 */
-std::vector<int> vector_of_primes(int num);
+std::vector<int> vector_of_primes(int num)
 {
 	int i;
 

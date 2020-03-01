@@ -30,15 +30,15 @@ int main()
 
 
 
-        switch (choice)
+        
     }
 
 
-	cout << "The max number is: " << get_max_from_vector(numbers) << endl;
+	cout << "The max number is: " << get_max_from_vector(numbers) << std::endl;
     cout << "Enter number to get the primes for that number: ";
     cin >> num; 
 
-    cout << "If you would like to exit, press x. "
+	cout << "If you would like to exit, press x. ";
 
 	return 0;
 }
