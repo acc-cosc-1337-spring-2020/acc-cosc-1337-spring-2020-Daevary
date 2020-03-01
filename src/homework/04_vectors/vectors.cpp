@@ -43,7 +43,7 @@ bool is_prime(int num)
 	{
 		return false;
 	}
-	else if (num % 6 == 1 || num % 6 == 5)
+	else 
 	{
 		for (i = 2; i < num; i++)
 		{
@@ -51,13 +51,11 @@ bool is_prime(int num)
 			{
 				return false;
 			}
-			return true;
+			
 		}
 	}
-	else
-	{
-		return false;
-	}
+	
+	return true;
 
 }
 /*
@@ -78,7 +76,7 @@ std::vector<int> vector_of_primes(int num)
 
 	std::vector<int> result;
 
-	for (i = 2; i <= num; i++);
+	for (i = 2; i <= num; i++)
 	{
 		if (is_prime(i)) result.push_back(i);
 	}

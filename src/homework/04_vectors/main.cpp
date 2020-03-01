@@ -1,4 +1,4 @@
-#include "vectors.cpp"
+#include "vectors.h"
 #include <vector>
 #include <iostream>
 
@@ -20,7 +20,7 @@ int main()
 
 	int choice = 0, num, i;
 
-    while (choice != 'x' || choice != 'X')
+    while (choice != -1)
     {
         cout << "Enter 1 to Get Max from vector.\n";
         cout << "Enter 2 for Get primes.\n";
@@ -28,17 +28,38 @@ int main()
 
         cin >> choice;
 
-
+		if (choice == 1) 
+		{
+			cout << "The max number is: " << get_max_from_vector(numbers) << std::endl;
+		}
+		else if (choice == 2) 
+		{
+			cout << "Enter number to get the primes for that number: ";
+			cin >> num;
+			result = vector_of_primes(num);
+			for (auto prime : result) 
+			{
+				cout << prime << " ";
+			}
+			cout << "\n";
+		}
+		else if (choice == -1) 
+		{
+			cout << "Program will exit...";
+		}
+		else 
+		{
+			cout << "Invalid choice;";
+		}
 
         
     }
 
 
-	cout << "The max number is: " << get_max_from_vector(numbers) << std::endl;
-    cout << "Enter number to get the primes for that number: ";
-    cin >> num; 
+	
+    
 
-	cout << "If you would like to exit, press x. ";
+	
 
 	return 0;
 }
