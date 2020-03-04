@@ -5,12 +5,16 @@ class BankAccount
 {
 
 public: 
-	BankAccount(int b) : balance { b } {	} //constructor
+	BankAccount() = default; //default constructor, if constructor is nt provided, c++ creates a synthesized default constructor. 
+	explicit BankAccount(int b) : balance { b } {	} //constructor--> explicit : explicitly call it
 	int get_balance() const { return balance; }
 	void deposit(int amount);
 	void withdraw(int amount);
+	void open(int amount);
+
 private:
-	int balance;
+	int balance{ 0 };
+	const int min_balance_to_open{ 25 };  // cannot be changed
 
 };
 

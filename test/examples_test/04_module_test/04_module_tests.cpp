@@ -41,3 +41,27 @@ TEST_CASE("Test BankAccount withdraw")
 	REQUIRE_THROWS_AS(account.withdraw(451), Invalid); //amount can't be greater than balance
 	REQUIRE(account.get_balance() == 450);
 }
+
+TEST_CASE("Test BankAccount default constructor balance 0")
+{
+	BankAccount account;
+
+	REQUIRE(account.get_balance() == 0);
+}
+
+TEST_CASE("Test BankAccount initial open deposit >= 25")
+{
+	BankAccount account;
+	REQUIRE(account.get_balance() == 0);
+
+	account.open(25);
+	REQUIRE(account.get_balance() == 25);
+}
+
+TEST_CASE("Test BankAccount initial open deposit < 25")
+{
+	BankAccount account;
+	REQUIRE(account.get_balance() == 0);
+
+	REQUIRE_THROWS_AS(account.open(24), Invalid); // means if we call class function account.open with initial depost of 24, it'll go into function code, go to cpp under open; returns invalid object
+}

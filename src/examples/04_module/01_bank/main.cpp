@@ -1,10 +1,21 @@
 #include "bank_account.h"
 #include<iostream>
+#include<vector>
 
 using std::cout; using std::cin;
 
 int main()
 {
+	BankAccount a;
+	cout << a.get_balance();
+
+	std::vector<BankAccount> accounts{ BankAccount(100), BankAccount(200) };
+
+	for (auto act : accounts)
+	{
+		cout << act.get_balance() << "\n";
+	}
+
 	BankAccount account(500);
 	auto balance = account.get_balance();
 	cout << "Balance is: \n" << balance;
