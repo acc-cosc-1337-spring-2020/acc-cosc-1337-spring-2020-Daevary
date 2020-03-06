@@ -22,11 +22,16 @@ int main()
 
 	for (auto r : rectangles)
 	{
-		cout << r.get_area() << "\n";
+		cout << r << "\n";
 		total += r.get_area();
 		
+		
 	}
+
+
 	cout << "The total of the triangles are: " << total;
+	
+	
 
 	return 0;
 }
