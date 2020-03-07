@@ -1,4 +1,4 @@
 add_executable(ex_04_tests "04_module_tests.cpp")
-target_link_libraries(ex_04_tests ex_04_01_library)
-add_test(NAME ex_04_tests COMMAND ex_04_tests -s)
+target_link_libraries(tic_tac_toe_tests tic_tac_toe_library)
+add_test(NAME tic_tac_toe_tests COMMAND tic_tac_toe_tests -s)
                       
