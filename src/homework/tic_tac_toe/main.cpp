@@ -10,7 +10,7 @@ int main()
 
 	TicTacToe game;
 
-	while (first_player == "X", "O")
+	while (first_player == "X" || first_player == "O")
 	{
 		try
 		{
