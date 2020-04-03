@@ -3,44 +3,58 @@
 
 using std::cout; using std::cin;
 
-int main() 
+int main()
 {
 	std::string first_player;
 	std::string choice;
 
 	TicTacToe game;
-
-	while (!(first_player == "X" || first_player == "O"))
-	{
-		try
-		{
-			cout << "First player: X or O " << "\n";
-			cin >> first_player;
-			game.start_game(first_player);
-		}
-		catch (Error e)
-		{
-			cout << e.get_message() << "\n";
-		}
-	}
+	bool winner;
 
 	do
 	{
-		try
+		do
 		{
-			int position;
-			cout << "Mark the position(1-9) you would like to take: " << "\n";
-			cin >> position;
-			game.mark_board(position);
-		}
-		catch (Error e)
-		{
-			cout << e.get_message() << "\n";
-		}
 
-		cout << "to continue, press Y: ";
-		cin >> choice;
+			try
+			{
+				cout << "First player: X or O " << "\n";
+				cin >> first_player;
+				game.start_game(first_player);
+			}
+			catch (Error e)
+			{
+				cout << e.get_message() << "\n";
+			}
+
+			do
+			{
+				try
+				{
+					while (game.game_over() == false)
+					{
+						int position;
+						cout << "Mark the position(1-9) you would like to take: " << "\n";
+						cin >> position;
+						game.mark_board(position);
+						game.display_board();
+						winner = game.game_over();
+					}
+
+				}
+				catch (Error e)
+				{
+					cout << e.get_message() << "\n";
+				} 
+				cout << "Winner: " << game.get_winner() << "\n";
+			} while (winner == false);
+
+			cout << "Would you like to continue: ";
+			cin >> choice;
+
+		} while (!(first_player == "X" || first_player == "O")); 
+
+		
 	} while (choice == "Y" || choice == "y");
-
 	return 0;
 }

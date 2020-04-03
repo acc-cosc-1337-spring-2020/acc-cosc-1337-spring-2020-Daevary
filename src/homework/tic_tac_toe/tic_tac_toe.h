@@ -26,6 +26,7 @@ public:
 	void display_board() const;
 	std::string get_winner() { return winner; }
 
+
 private:
 	void set_next_player();
 	bool check_board_full();

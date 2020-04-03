@@ -26,7 +26,7 @@ protected:
 	int balance{ 0 };
 
 private:
-	int balance{ 0 };
+//	int balance{ 0 };
 	const int min_balance_to_open{ 25 };  // cannot be changed
 	static double rate; // creating static variable 
 	static double init_rate() { return .025; } // function 
