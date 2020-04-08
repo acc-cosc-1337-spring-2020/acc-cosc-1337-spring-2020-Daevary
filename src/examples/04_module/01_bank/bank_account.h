@@ -12,7 +12,7 @@ class BankAccount
 public: 
 	BankAccount() = default; //default constructor, if constructor is nt provided, c++ creates a synthesized default constructor. 
 	explicit BankAccount(int b) : balance { b } {	} //constructor--> explicit : explicitly call it
-	virtual int get_balance() const { return balance; }
+	virtual int get_balance() const = 0; //makes code fleible to use fxns from derived classes
 	void deposit(int amount);
 	void withdraw(int amount);
 	void open(int amount);

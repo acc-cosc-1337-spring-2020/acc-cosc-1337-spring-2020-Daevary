@@ -2,16 +2,18 @@
 #include "catch.hpp"
 #include "bank_account.h"
 #include "checking_account.h"
+#include "savings_account.h"
 
+using std::unique_ptr; using std::make_unique;
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
 TEST_CASE("Test BankAccount Constructor")
 {
-	BankAccount account(500);
+	unique_ptr<BankAccount> account = make_unique<SavingsAccount>(90);
 
-	REQUIRE(account.get_balance() == 500);
+	REQUIRE(account->get_balance() == 500);
 }
 
 TEST_CASE("Test BankAccount deposit")

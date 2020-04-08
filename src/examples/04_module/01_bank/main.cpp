@@ -1,5 +1,6 @@
 #include "checking_account.h" //has bankaccount included
 #include "savings_account.h"
+#include "customer.h"
 #include<iostream>
 #include<vector>
 #include<memory>
@@ -10,7 +11,7 @@ using std::unique_ptr; using std::make_unique;
 int main()
 { 
 
-	unique_ptr<BankAccount> s = make_unique<SavingsAccount> ( 90 );
+	unique_ptr<BankAccount> s = make_unique<SavingsAccount> ( 90 ); // creates an instance of bankaccount
 
 	unique_ptr<BankAccount> c = make_unique <CheckingAccount>( 100 );
 	SavingsAccount s1;
@@ -29,7 +30,8 @@ int main()
 		cout << act->get_balance() << "\n"; //points to the instance savingsaccount of type bankaccount
 	}
 
-	/*BankAccount account(500);
+
+	/*
 	cin >> account; 
 	cout << account;
 	display_balance(account);
