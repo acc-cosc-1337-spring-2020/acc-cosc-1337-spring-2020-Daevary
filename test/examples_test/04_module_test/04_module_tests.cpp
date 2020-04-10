@@ -18,15 +18,15 @@ TEST_CASE("Test BankAccount Constructor")
 
 TEST_CASE("Test BankAccount deposit")
 {
-	BankAccount account(500);
+	unique_ptr<BankAccount> account = make_unique<SavingsAccount>(500);
 
-	REQUIRE(account.get_balance() == 500);
+	REQUIRE(account->get_balance() == 500);
 
-	account.deposit(50);
-	REQUIRE(account.get_balance() == 550);
+	account->deposit(50);
+	REQUIRE(account->get_balance() == 550);
 
-	REQUIRE_THROWS_AS(account.deposit(-50), Invalid);
-	REQUIRE(account.get_balance() == 550);
+	REQUIRE_THROWS_AS(account->deposit(-50), Invalid);
+	REQUIRE(account->get_balance() == 550);
 }
 
 TEST_CASE("Test BankAccount withdraw")

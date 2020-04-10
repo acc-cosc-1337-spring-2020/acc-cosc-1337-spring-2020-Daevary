@@ -35,8 +35,10 @@ int main()
 				{
 					int position;
 					cout << "Mark the position(1-9) you would like to take: " << "\n";
+
 					cin >> position;
 					game.mark_board(position);
+
 					game.display_board();
 					winner = game.game_over();
 				}
