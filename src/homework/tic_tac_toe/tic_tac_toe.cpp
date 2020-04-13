@@ -183,3 +183,23 @@ void TicTacToe::clear_board()
 		peg = " ";
 	}
 }
+
+std::ostream& operator<<(ostream& out, const TicTacToe& t) {
+
+	for (int i = 0; i < 9; i += 3) {
+		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2] << "\n";
+	}
+
+	return out;
+}
+
+
+istream& operator>>(istream& in, TicTacToe& t) {
+
+	int position;
+	cout << "Enter your position Player " << t.get_player() << ": ";
+	in >> position;
+
+	t.mark_board(position);
+	return in;
+}

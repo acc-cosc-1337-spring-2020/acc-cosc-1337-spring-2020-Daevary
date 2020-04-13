@@ -1,18 +1,20 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 #include <iostream>
 
 using std::cout; using std::cin;
 
 int main()
 {
-	std::string first_player;
+	
 	std::string choice;
-
-	TicTacToe game;
 	bool winner;
+	TicTacToeManager manager;
 
 	do
 	{
+		std::string first_player;
+		TicTacToe game;
 		while (!(first_player == "X" || first_player == "O"))
 		{
 			try
@@ -27,34 +29,29 @@ int main()
 			}
 		}
 
-		do
+		while (game.game_over() == false)
 		{
 			try
 			{
-				while (game.game_over() == false)
-				{
-					int position;
-					cout << "Mark the position(1-9) you would like to take: " << "\n";
-
-					cin >> position;
-					game.mark_board(position);
-
-					game.display_board();
-					winner = game.game_over();
-				}
-
+				cin >> game;
 			}
 			catch (Error e)
 			{
 				cout << e.get_message() << "\n";
-			} 
-			cout << "Winner: " << game.get_winner() << "\n";
-		} while (winner == false);
+			}
 
+			cout << game;
+
+		}
+		manager.save_game(game);
+		cout << "Winner: " << game.get_winner() << "\n";
 		cout << "Would you like to continue: ";
 		cin >> choice;
 
 		
 	} while (choice == "Y" || choice == "y");
+
+	cout << manager;
+
 	return 0;
 }
