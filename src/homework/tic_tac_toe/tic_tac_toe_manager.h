@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 
-class TicTacToeManager : public TicTacToe
+class TicTacToeManager
 {
 
 public:
@@ -15,9 +15,9 @@ public:
 
 private:
 	std::vector<TicTacToe>games;
-	int x_win = { 0 };
-	int o_win = { 0 };
-	int ties = { 0 };
+	int x_win{ 0 };
+	int o_win{ 0 };
+	int ties{ 0 };
 	void update_winner_ct(std::string winner);
 };
 
