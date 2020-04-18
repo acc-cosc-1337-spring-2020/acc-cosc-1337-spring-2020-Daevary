@@ -87,6 +87,7 @@ TEST_CASE("Test mark position accepts value from 1 to 9 only")
 TEST_CASE("Test win by first column, X wins")
 {
 	TicTacToe board;
+	TicTacToe game;
 	board.start_game("X");
 
 	REQUIRE(board.game_over() == false);
@@ -101,6 +102,8 @@ TEST_CASE("Test win by first column, X wins")
 	board.mark_board(7); // X
 	// X Wins
 	REQUIRE(board.game_over() == true);
+	
+	REQUIRE(game.get_winner() == "X");
 
 }
 
