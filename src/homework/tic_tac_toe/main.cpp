@@ -10,6 +10,7 @@ int main()
 {
 	
 	std::string choice;	
+	TicTacToeManager manager;
 	
 	
 	do
@@ -103,6 +104,7 @@ int main()
 		
 	} while (choice == "Y" || choice == "y");
 
+	cout << manager; 
 
 	return 0;
 }
