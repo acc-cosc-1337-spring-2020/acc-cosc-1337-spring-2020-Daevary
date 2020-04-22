@@ -18,9 +18,9 @@ void TicTacToeManager::save_game(TicTacToe b)
 
 void TicTacToeManager::get_winner_total(int& o, int& w, int&t)
 {
-	cout << "X wins: " << x_win << "\n";
-	cout << "O wins: " << o_win << "\n";
-	cout << "Ties: " << ties << "\n";
+	o = o_win;
+	w = x_win;
+	t = ties;
 }
 
 void TicTacToeManager::update_winner_ct(std::string winner)
@@ -51,23 +51,14 @@ std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 		out << "\n";
 		out << game;
 
-		/*if (game.get().get_winner() == "X")
-		{
-			x_win++;
-		}
-		else if (game.get().get_winner() == "O")
-		{
-			o_win++;
-		}
-		else
-		{
-			ties++;
-		}*/
-
 		std::string w = game.get().get_winner();
 		out << "The Winner is: " << w << "\n";
 
 
 	}
+
+	out << "X wins: " << manager.x_win << "\n";
+	out << "O wins: " << manager.o_win << "\n";
+	out << "Ties: " << manager.ties << "\n";
 	return out;
 }

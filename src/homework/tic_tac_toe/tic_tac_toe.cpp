@@ -13,7 +13,7 @@ bool TicTacToe::game_over()
 	}
 	else if (check_board_full() == true)
 	{
-		winner = 'C';
+		winner = "C";
 		return true;
 	}
 
@@ -46,10 +46,7 @@ void TicTacToe::mark_board(int position)
 
 	pegs[position - 1] = player;
 
-	if (game_over() == false)
-	{
-		set_next_player();
-	}
+	set_next_player();
 
 }
 
@@ -100,11 +97,11 @@ void TicTacToe::set_winner()
 {
 	if (player == "X")
 	{
-		winner = 'X';
+		winner = "O";
 	}
 	else
 	{
-		winner = 'O';
+		winner = "X";
 	}
 }
 

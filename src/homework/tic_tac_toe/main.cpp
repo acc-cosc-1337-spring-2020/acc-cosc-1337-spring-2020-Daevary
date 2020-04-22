@@ -17,7 +17,6 @@ int main()
 	{
 		bool winner;
 		int player;
-		TicTacToeManager manager;
 		std::string first_player;
 		//TicTacToe game;
 		int x;
