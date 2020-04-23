@@ -14,6 +14,7 @@ public:
 	size_t Size()const { return size; }
 	int& operator[](int i) { return nums[i]; } 
 	int& operator[](int i)const { return nums[i]; }
+	~Vector();
 
 private:
 	size_t size; //stack variable
@@ -23,3 +24,7 @@ private:
 };
 
 #endif
+
+//doesn't belong to class
+//free function
+void use_vector();
