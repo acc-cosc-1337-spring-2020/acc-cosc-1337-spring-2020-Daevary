@@ -3,107 +3,86 @@
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
 #include <iostream>
+#include <vector>
+#include <memory>
 
-using std::cout; using std::cin;
+using std::cout; using std::cin; using std::string; using std::unique_ptr; using std::make_unique;
 
 int main()
 {
-	
-	std::string choice;	
-	TicTacToeManager manager;
-	
+	string choice;	
+	//TicTacToeManager manager;
+	unique_ptr<TicTacToeManager> manager = make_unique<TicTacToeManager>();
 	
 	do
 	{
+		
+		int game_type;
+		cout << "\nTicTacToe 3 or 4?: ";
+		cin >> game_type;
+		//TicTacToeThree game3;
+		//TicTacToeFour game4;
+		unique_ptr<TicTacToe> game;
+		
 		bool winner;
-		int player;
-		std::string first_player;
-		//TicTacToe game;
 		int x;
 		int o;
 		int t;
 
-		std::vector<std::reference_wrapper<TicTacToe>> games;
 
-		cout << "Enter 3 or 4 to start the game: ";
-		cin >> player;
-
-		if (player == 3)
+		if (game_type == 3)
 		{
-			TicTacToeThree three;
-			games.push_back(three);
-
-			while (!(first_player == "X" || first_player == "O"))
-			{
-				try
-				{
-					cout << "First player: X or O " << "\n";
-					cin >> first_player;
-					three.start_game(first_player);
-				}
-				catch (Error e)
-				{
-					cout << e.get_message() << "\n";
-				}
-			}
-
-			do
-			{
-				cin >> three;
-				cout << three;
-				winner = three.game_over();
-
-			} while (winner == false);
-
-			manager.save_game(three);
-			cout << "\n";
-			cout << three;
-			manager.get_winner_total(x, o, t);
-			cout << "The winner is: " << three.get_winner() << "\n";
+			game = make_unique<TicTacToeThree>();
 			
 		}
-
-		else if (player == 4)
+		else if (game_type == 4)
 		{
-			TicTacToeFour four;
-			games.push_back(four);
+			game = make_unique<TicTacToeFour>();
+		}
 
-			while (!(first_player == "X" || first_player == "O"))
+		string player = "Y";
+
+		while (!(player == "X" || player == "O"))
+		{
+			try
 			{
-				try
-				{
-					cout << "First player: X or O " << "\n";
-					cin >> first_player;
-					four.start_game(first_player);
-				}
-				catch (Error e)
-				{
-					cout << e.get_message() << "\n";
-				}
+				cout << "First Player, X or O: ";
+				cin >> player;
+
+				game->start_game(player);
+
+			}
+			catch (Error e)
+			{
+				cout << e.get_message() << "\n";
 			}
 			do
 			{
-				cin >> four;
-				cout << four;
-				winner = four.game_over();
+				cin >> *game;
+				cout << *game;
+				//winner = game->game_over();
 
-			} while (winner == false);
+			} while (game->game_over() == false);
 
-			manager.save_game(four);
-			cout << "\n";
-			cout << four;
-			manager.get_winner_total(x, o, t);
-			cout << "The winner is: " << four.get_winner() << "\n";
 		}
 
 		
-		cout << "Would you like to play another game?: ";
+
+
+		manager->save_game(game);
+		cout << "\n";
+		//cout << *game;
+		manager->get_winner_total(o, x, t); 
+		//cout << "The winner is: " << games->get_winner() << "\n";
+		
+
+		cout << "Game Over\n" << "\nWould you like to play another game?: ";
 		cin >> choice;
 
 		
 	} while (choice == "Y" || choice == "y");
 
-	cout << manager; 
+	cout << *manager; 
 
 	return 0;
 }
