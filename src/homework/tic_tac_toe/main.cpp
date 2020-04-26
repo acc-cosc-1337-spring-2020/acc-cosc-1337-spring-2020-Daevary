@@ -25,10 +25,6 @@ int main()
 		unique_ptr<TicTacToe> game;
 		
 		bool winner;
-		int x;
-		int o;
-		int t;
-
 
 		if (game_type == 3)
 		{
@@ -68,12 +64,11 @@ int main()
 
 		
 
+		cout << "The winner is: " << game->get_winner() << "\n";
 
 		manager->save_game(game);
 		cout << "\n";
-		//cout << *game;
-		manager->get_winner_total(o, x, t); 
-		//cout << "The winner is: " << games->get_winner() << "\n";
+		
 		
 
 		cout << "Game Over\n" << "\nWould you like to play another game?: ";

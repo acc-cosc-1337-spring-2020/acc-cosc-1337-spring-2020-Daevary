@@ -11,8 +11,8 @@ using std::cout;
 
 void TicTacToeManager::save_game(std::unique_ptr<TicTacToe> &game)
 {
-	games.push_back(std::move(game));
 	update_winner_ct(game->get_winner());
+	games.push_back(std::move(game));
 
 }
 
