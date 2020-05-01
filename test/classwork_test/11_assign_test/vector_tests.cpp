@@ -49,3 +49,11 @@ TEST_CASE("Test vector capacity and reserve")
 	REQUIRE(v.Size() == 3);
 
 }
+
+TEST_CASE("")
+{
+	Vector v(3);
+	v[0] = 3;
+	v[1] = 4;
+	v[2] = 5;
+}

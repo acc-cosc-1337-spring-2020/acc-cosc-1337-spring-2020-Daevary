@@ -5,8 +5,7 @@
 Initialize nums to size dynamic array
 initialize ea. arry element to 0
 */
-Vector::Vector(size_t sz)
-	: size {sz}, nums{new int[sz], space
+Vector::Vector(size_t sz) : size {sz}, nums{new int[sz]//add space?
 {
 	for (size_t i = 0; i < sz; ++i)
 	{
@@ -26,6 +25,7 @@ Vector::Vector(const Vector & v) : size{ v.size }, nums{new int [v.size]}
 		nums[i] = v[i];
 	}
 }
+
 
 /*
 allocate teporary dynamic array of size v (v1)
@@ -62,8 +62,7 @@ Get the size from v
 Point the v.nums to nullptr
 */
 
-Vector::Vector(Vector && v)
-	: size{v.size}, nums{v.nums}
+Vector::Vector(Vector && v) : size{v.size}, nums{v.nums}
 {
 	v.size = 0;
 	v.nums = nullptr;
@@ -116,6 +115,39 @@ void Vector::Reserve(size_t new_allocation)
 	nums = temp;
 
 	space = new_allocation;
+}
+
+/*
+Reserve space
+Initialize values byond size new elements to 0
+
+*/
+void Vector::Resize(size_t new_size)
+{
+	Reserve(new_size);
+
+	for (size_t i = size; i < new_size; ++i)
+	{
+		nums[i] = 0;
+	}
+
+	size = new_size;
+}
+
+void Vector::Push_Back(int value)
+{
+	if (space == 0)
+	{
+		Reserve(RESERVE_DEFAULT_SIZE);
+	}
+	else if (size == space)
+	{
+		Reserve(space * RESERVE_DEFAULT_MULTIPLIER);
+	}
+
+
+	nums[size] = value;
+	++size;
 }
 
 /*
