@@ -8,6 +8,7 @@
 class TicTacToeFour : public TicTacToe
 {
 public:
+	TicTacToeFour(std::vector<string> p, string winner){}
 	TicTacToeFour() : TicTacToe(4) {}
 
 private:
@@ -15,6 +16,9 @@ private:
 	bool check_column_win();
 	bool check_row_win();
 	bool check_diagonal_win();
+
+	//std::vector<std::string> pegs{};
+	//std::string winner;
 
 };
 #endif // !TTT_FOUR_H

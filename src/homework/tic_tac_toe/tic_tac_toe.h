@@ -24,6 +24,7 @@ class TicTacToe
 {
 public: 
 	TicTacToe() = default;
+	TicTacToe(std::vector<string> p, string win) : pegs{ p }, winner{ win }{}
 	TicTacToe(int size) : pegs(size*size, " ") {}
 	bool game_over();
 	void start_game(std::string first_player);
@@ -31,11 +32,13 @@ public:
 	std::string get_player() const { return player; }
 	//void display_board() const;
 	std::string get_winner() const { return winner; }
+	std::vector<string> get_pegs() const { return pegs; }
 	friend std::ostream& operator << (std::ostream & out, const TicTacToe& t);
 	friend std::istream& operator >> (std::istream& in, TicTacToe& t);
 
 protected:
 	std::vector<std::string> pegs{};
+	std::string winner;
 	virtual bool check_column_win() = 0;
 	virtual bool check_row_win() = 0;
 	virtual bool check_diagonal_win() = 0;
